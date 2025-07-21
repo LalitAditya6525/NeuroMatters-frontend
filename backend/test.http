@@ -1,0 +1,85 @@
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Lalit Aditya",
+  "email": "lalit@example.com",
+  "password": "test1234"
+}
+
+### Login user and get token
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "lalit@example.com",
+  "password": "test1234"
+}
+
+### 🧠 Protected Routes (Replace {{JWT_TOKEN}} below after logging in)
+
+### Add Mood Entry
+POST http://localhost:5000/api/mood/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+Content-Type: application/json
+
+{
+  "mood": "Happy",
+  "note": "Feeling great after meditation!"
+}
+
+### Start Meditation Session
+POST http://localhost:5000/api/meditation/start
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+Content-Type: application/json
+
+{
+  "duration": 15,
+  "type": "Mindfulness"
+}
+
+### Create Note
+POST http://localhost:5000/api/notes/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+Content-Type: application/json
+
+{
+  "title": "Daily Journal",
+  "content": "Today I felt productive and calm."
+}
+
+### Create Goal
+POST http://localhost:5000/api/goals/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+Content-Type: application/json
+
+{
+  "title": "Read 5 pages of a book",
+  "description": "Self-help book",
+  "targetDate": "2025-07-10"
+}
+
+### Book Event
+POST http://localhost:5000/api/events/book/64e8762af52bd5f8c8792b25
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+### Send Chat Message
+POST http://localhost:5000/api/chat/send
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+Content-Type: application/json
+
+{
+  "sender": "user",
+  "message": "Hi, I feel anxious."
+}
+
+### Log Progress
+POST http://localhost:5000/api/progress/log
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmE3NWE0NjQ4MmRmMjRiNzI5MzUxNCIsImlhdCI6MTc1MTgxNTYzNn0.aVNt5PULIcbZXmI3kTUwhtQVPTdyRBuDpl7qgVSzKgg
+Content-Type: application/json
+
+{
+  "summary": "Improved focus today",
+  "moodScore": 8,
+  "productivity": 7
+}
