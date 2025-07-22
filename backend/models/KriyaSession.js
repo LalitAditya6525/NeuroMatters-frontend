@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const kriyaSessionSchema = new mongoose.Schema({
   userId: mongoose.Schema.Types.ObjectId,
+  technique: String,
   duration: Number,
-  feedback: String,
   timestamp: { type: Date, default: Date.now }
 });
 

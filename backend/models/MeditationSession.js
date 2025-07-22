@@ -2,16 +2,10 @@
 const mongoose = require('mongoose');
 
 const MeditationSessionSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
+  userId: mongoose.Schema.Types.ObjectId,
+  technique: String,
   duration: Number,
-  type: String,
-  timestamp: {
-    type: Date,
-    default: Date.now
-  }
+  timestamp: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.models.MeditationSession || mongoose.model('MeditationSession', MeditationSessionSchema);
